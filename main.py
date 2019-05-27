@@ -19,3 +19,10 @@ mindenAdat = pan.merge(gazellatas, nemzetipark, on='evszam', how="outer")
 mindenAdat = pan.DataFrame({'Gazellatas': mindenAdat['gaz'], 'Nemzeti park terulet': mindenAdat['nemzetiParkTerulet']})
 
 korrelaciosMatrix = mindenAdat.corr()
+
+figure(num = None, figsize = (13, 9), dpi = 80, facecolor = 'w', edgecolor = 'k')
+plot.clf()
+plot.xlabel('Evszam')
+plot.ylabel('Vezetekes gazzal ellatott telepulesek aranya [%]')
+plot.plot(gazellatas['evszam'], gazellatas['gaz'])
+plot.show()

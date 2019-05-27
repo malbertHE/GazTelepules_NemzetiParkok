@@ -17,3 +17,5 @@ nemzetipark = nemzetipark.rename(index = str, columns = {nemzetipark.columns[0]:
 
 mindenAdat = pan.merge(gazellatas, nemzetipark, on='evszam', how="outer")
 mindenAdat = pan.DataFrame({'Gazellatas': mindenAdat['gaz'], 'Nemzeti park terulet': mindenAdat['nemzetiParkTerulet']})
+
+korrelaciosMatrix = mindenAdat.corr()

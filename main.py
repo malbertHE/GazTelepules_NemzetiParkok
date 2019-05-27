@@ -14,3 +14,6 @@ for i in range(36, 55) :
 nemzetipark = pan.read_excel('./data/5_2_2i.xls', sheet_name = '5.2.2.', skiprows = elhagyandoSorok)
 nemzetipark = nemzetipark.drop(nemzetipark.columns[[2, 3, 4, 5, 6, 7]], axis = 1)
 nemzetipark = nemzetipark.rename(index = str, columns = {nemzetipark.columns[0]: 'evszam', nemzetipark.columns[1]: 'nemzetiParkTerulet'})
+
+mindenAdat = pan.merge(gazellatas, nemzetipark, on='evszam', how="outer")
+mindenAdat = pan.DataFrame({'Gazellatas': mindenAdat['gaz'], 'Nemzeti park terulet': mindenAdat['nemzetiParkTerulet']})
